@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Finds all resources used in *.js files in a Portego solution",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steinringer/resource-usage-analyzer.git"
+  },
   "scripts": {
     "test": "mocha src/**/*.spec.js"
   },
