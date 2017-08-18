@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "co": "^4.6.0",
     "fs-extra": "^4.0.1",
     "glob": "^7.1.2",
     "glob-promise": "^3.1.0",
