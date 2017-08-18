@@ -1,12 +1,12 @@
 {
-  "name": "resource-usage",
+  "name": "@steinringer/resource-usage-analyzer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Finds all resources used in *.js files in a Portego solution",
+  "main": "src/index.js",
   "scripts": {
     "test": "mocha src/**/*.spec.js"
   },
-  "author": "",
+  "author": "Steinringer WEB and IT solutions",
   "license": "ISC",
   "dependencies": {
     "co": "^4.6.0",
