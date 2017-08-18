@@ -60,7 +60,12 @@ let getAllResourcesInFile = co.wrap(function* (fileName) {
     }
 });
 
-let getAllResources = co.wrap(function* ({ rootDir, fileGlobs = defaultSettings.fileGlobs, ignoreGlobs = defaultSettings.ignoreGlobs, }) {
+let getAllResources = co.wrap(function* ({
+    rootDir,
+    fileGlobs = defaultSettings.fileGlobs,
+    ignoreGlobs = defaultSettings.ignoreGlobs,
+    outFile = null
+}) {
     let srcFiles = yield globAll(rootDir, fileGlobs, ignoreGlobs);
     let resourcesInFiles = yield srcFiles.map(getAllResourcesInFile);
 
@@ -80,6 +85,10 @@ let getAllResources = co.wrap(function* ({ rootDir, fileGlobs = defaultSettings.
         .uniq()
         .value();
 
+    if(outFile){
+        yield fs.writeFile(outFile, JSON.stringify(resources, null, ' '), 'utf-8');
+    }
+
     return {
         resources,
         errors
@@ -90,7 +99,8 @@ module.exports = getAllResources;
 
 // const rootDir = 'c:/_dev/Portego.Calculations/Portego.Calculations.Web/App/Packages/Calculations/';
 
-// getAllResources({ rootDir })
+// getAllResources({ rootDir ,
+// outFile: 'c:/_dev/Portego.Calculations/Portego.Calculations.Web/App/Packages/Calculations/res.json'})
 //     .then(({
 //         resources,
 //         errors

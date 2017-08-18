@@ -28,8 +28,9 @@ resourceUsageAnalyzer({
 
 ### settings
 - `rootDir` : root directory where to search for files
-- `fileGlobs` : array of globs that defines files to be included
-- `ignoreGlobs` : array of globs that defines files to be excluded. 
+- `fileGlobs` : [optional] array of globs that defines files to be included
+- `ignoreGlobs` : [optional] array of globs that defines files to be excluded. 
+- `outFile` : [optional] file where should be list saved. 
 
 defaults : 
 ``` js
@@ -47,3 +48,8 @@ defaults :
     ],
 }
 ```
+
+### return value
+function returns promise, that resolves to object with:
+- `resources` : list of resources
+- `errors` : list of all errors that has occurred during analysis
